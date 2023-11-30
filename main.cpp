@@ -4,7 +4,7 @@
 #include <time.h>
 #include <iostream>
 
-#define min1(x,y) ((x)<(y)?(x):(y))
+#define min2(x,y) ((x)<(y)?(x):(y))
 #define max(x,y) ((x)>(y)?(x):(y))
 #define dist(x,y) ((x-y)*(x-y))
 
