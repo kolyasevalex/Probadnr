@@ -1,10 +1,10 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
 #include <iostream>
 
-#define min(x,y) ((x)<(y)?(x):(y))//äîáàâèë êîììåíò
+#define min(x,y) ((x)<(y)?(x):(y))//Ð´Ð¾Ð±Ð°Ð²Ð¸Ð» ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚
 #define max(x,y) ((x)>(y)?(x):(y))
 #define dist(x,y) ((x-y)*(x-y))
 
