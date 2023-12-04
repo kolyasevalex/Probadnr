@@ -57,22 +57,10 @@ int main(  int argc , char *argv[] )
     int EPOCH = 100000;
 
     // If not enough input, display an error.
-    if (argc<=3)
+    if (argc<3)
         error(4);
 
-    // read size of the query
-    if (argc>3)
-        m = atol(argv[3]);
-
-    // read warping windows
-    if (argc>4)
-    {   double R = atof(argv[4]);
-        if (R<=1)
-            r = floor(R*m);
-        else
-            r = floor(R);
-    }
-
+   
     fp = fopen(argv[1],"r");
     if( fp == NULL )
         error(2);
@@ -89,71 +77,13 @@ int main(  int argc , char *argv[] )
     q = (double *)malloc(sizeof(double)*m);
     if( q == NULL )
         error(1);
-    qo = (double *)malloc(sizeof(double)*m);
-    if( qo == NULL )
-        error(1);
-    uo = (double *)malloc(sizeof(double)*m);
-    if( uo == NULL )
-        error(1);
-    lo = (double *)malloc(sizeof(double)*m);
-    if( lo == NULL )
-        error(1);
-
-    order = (int *)malloc(sizeof(int)*m);
-    if( order == NULL )
-        error(1);
-
-    Q_tmp = (Index *)malloc(sizeof(Index)*m);
-    if( Q_tmp == NULL )
-        error(1);
-
-    u = (double *)malloc(sizeof(double)*m);
-    if( u == NULL )
-        error(1);
-
-    l = (double *)malloc(sizeof(double)*m);
-    if( l == NULL )
-        error(1);
-
-    cb = (double *)malloc(sizeof(double)*m);
-    if( cb == NULL )
-        error(1);
-
-    cb1 = (double *)malloc(sizeof(double)*m);
-    if( cb1 == NULL )
-        error(1);
-
-    cb2 = (double *)malloc(sizeof(double)*m);
-    if( cb2 == NULL )
-        error(1);
-
-    u_d = (double *)malloc(sizeof(double)*m);
-    if( u == NULL )
-        error(1);
-
-    l_d = (double *)malloc(sizeof(double)*m);
-    if( l == NULL )
-        error(1);
-
-    t = (double *)malloc(sizeof(double)*m*2);
-    if( t == NULL )
-        error(1);
-
-    tz = (double *)malloc(sizeof(double)*m);
-    if( tz == NULL )
-        error(1);
+    
 
     buffer = (double *)malloc(sizeof(double)*EPOCH);
     if( buffer == NULL )
         error(1);
 
-    u_buff = (double *)malloc(sizeof(double)*EPOCH);
-    if( u_buff == NULL )
-        error(1);
-
-    l_buff = (double *)malloc(sizeof(double)*EPOCH);
-    if( l_buff == NULL )
-        error(1);
+   
 
 
     /// Read query file
@@ -365,17 +295,9 @@ int main(  int argc , char *argv[] )
     t2 = clock();
     printf("\n");
 
-    /// Note that loc and i are long long.
-    cout << "Location : " << loc << endl;
-    cout << "Distance : " << sqrt(bsf) << endl;
-    cout << "Data Scanned : " << i << endl;
+    
     cout << "Total Execution Time : " << (t2-t1)/CLOCKS_PER_SEC << " sec" << endl;
 
-    /// printf is just easier for formating ;)
-    printf("\n");
-    printf("Pruned by LB_Kim    : %6.2f%%\n", ((double) kim / i)*100);
-    printf("Pruned by LB_Keogh  : %6.2f%%\n", ((double) keogh / i)*100);
-    printf("Pruned by LB_Keogh2 : %6.2f%%\n", ((double) keogh2 / i)*100);
-    printf("DTW Calculation     : %6.2f%%\n", 100-(((double)kim+keogh+keogh2)/i*100));
+    
     return 0;
 }
