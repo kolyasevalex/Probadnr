@@ -5,14 +5,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
-
-//Print function for debugging
-void printArray(double *x, int len)
-{   for(int i=0; i<len; i++)
-        printf(" %6.2lf",x[i]);
-    printf("\n");
-}
+using Match = pair<pair<double, int>, pair<int, int>>;
+vector<Match> DNRTPM(vector <double>& stream, vector <double>& query, bool best_query, int n_query, bool disjoint, double threshold);
 
 // If expected error happens, teminated the program.
 void error(int id)
@@ -57,25 +51,9 @@ int main(  int argc , char *argv[] )
     FILE *qp;            // query file pointer
     double bsf;          // best-so-far
     vector<double> t, q;       // data array and query array
-    int *order;          //new order of the query
-    double *u, *l, *qo, *uo, *lo,*tz,*cb, *cb1, *cb2,*u_d, *l_d;
-
-
-    double d;
-    long long i , j;
-    double ex , ex2 , mean, std;
     int m=-1, r=-1;
-    long long loc = 0;
     double t1,t2;
-    int kim = 0,keogh = 0, keogh2 = 0;
-    double dist=0, lb_kim=0, lb_k=0, lb_k2=0;
-    double *buffer, *u_buff, *l_buff;
-    Index *Q_tmp;
-
-    //For every EPOCH points, all cummulative values, such as ex (sum), ex2 (sum square), will be restarted for reducing the floating point error.
-    int EPOCH = 100000;
-
-    // If not enough input, display an error.
+      // If not enough input, display an error.
     if (argc<3)
         error(4);
 

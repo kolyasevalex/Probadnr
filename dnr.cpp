@@ -81,7 +81,7 @@ pair<vector <double>,vector <double>> prefix_norm(vector <double>& query_ori){
 }
 
 
-vector<Match> DNRTPM(vector <double> stream, vector <double> query, bool best_query,int n_query, bool disjoint, double threshold){
+vector<Match> DNRTPM(vector <double>& stream, vector <double>& query, bool best_query,int n_query, bool disjoint, double threshold){
     double epsilon = threshold;
     if(best_query)
         epsilon = inf;
