@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <array>
 #include <vector>
 #include <cassert>
@@ -41,7 +41,7 @@ pair<double,double> mean_std(std::vector<double>& samples)
     double mean = sums/size;
     return make_pair(mean,sqrt(sums_square / size-mean*mean));
 }
-
+//префиксная нормализация
 pair<vector <double>,vector <double>> prefix_norm(vector <double>& query_ori){
     vector<double > query ;
     bool append_flag = false;
